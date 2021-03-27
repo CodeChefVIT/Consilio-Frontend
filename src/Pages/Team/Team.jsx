@@ -18,6 +18,8 @@ import url from "../../utils/constants";
 function Team() {
   const token = localStorage.getItem("authToken");
   const [jointeam, setJoin] = useState(false);
+  const [createteam, setCreate] = useState(false);
+  
   useEffect(() => {
     axios
       .get(`${url}/team/user`, {
@@ -91,6 +93,42 @@ function Team() {
           </Button>
           <Button onClick={() => {}} color="primary">
             Join
+          </Button>
+        </DialogActions>
+      </Dialog>
+      <Dialog
+        open={createTeam}
+        onClose={() => {
+          setCreate(false);
+        }}
+        aria-labelledby="form-dialog-title"
+      >
+        <DialogTitle id="form-dialog-title">Join a Team</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            To join a team, enter team code. If you don't have a team yet, hop
+            on to our discord server.
+          </DialogContentText>
+          <TextField
+            autoFocus
+            margin="dense"
+            id="name"
+            label="Team Code"
+            type="text"
+            fullWidth
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button
+            onClick={() => {
+              setCreate(false);
+            }}
+            color="primary"
+          >
+            Cancel
+          </Button>
+          <Button onClick={() => {}} color="primary">
+            Create
           </Button>
         </DialogActions>
       </Dialog>
