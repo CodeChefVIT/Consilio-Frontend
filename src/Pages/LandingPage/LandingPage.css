@@ -8,6 +8,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	text-align: center;
 }
 
 .landing-nav {
@@ -66,8 +67,9 @@
 	margin-top: 50px;
 }
 
-.btn-bar .primary-button {
-	width: 100px;
+.primary-button {
+	/* width: 100px; */
+	padding: 0 30px;
 	height: 50px;
 	color: white;
 	background-color: #2CC8EB;
@@ -77,17 +79,23 @@
 	font-size: 1rem;
 	cursor: pointer;
 	font-family: "Maven Pro", sans-serif !important;
+	margin: 5px 0;
 	margin-right: 5%;
 	transition: 0.2s all ease-in-out;
 }
 
-.btn-bar .primary-button:hover {
+.primary-button:hover {
 	background-color: #229bb6;
 	color: white;
 }
 
-.btn-bar .secondary-button {
-	width: 100px;
+.primary-button:focus {
+	outline: none !important;
+}
+
+.secondary-button {
+	/* width: 100px; */
+	padding: 0 30px;
 	height: 50px;
 	color: white;
 	background-color: transparent;
@@ -101,10 +109,14 @@
 	transition: 0.2s all ease-in-out;
 }
 
-.btn-bar .secondary-button:hover {
+.secondary-button:hover {
 	/* background-color: #229bb6; */
 	border-width: 3px;
 	/* color: white; */
+}
+
+.secondary-button:focus {
+	outline: none !important;
 }
 
 .landing-image {

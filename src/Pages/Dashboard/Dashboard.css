@@ -1,8 +1,8 @@
 .wrapper {
   width: calc(100% - 20px);
-  height: calc(100vh - 68px);
+  height: calc(100vh - 121px);
   padding: 10px;
-  align-items: center;
+  /* align-items: center; */
   flex-direction: column;
   color: white;
 }
@@ -31,4 +31,3 @@
   padding-bottom: 10px;
   border-bottom: 3px solid var(--primary);
 }
-

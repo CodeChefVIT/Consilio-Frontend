@@ -1,26 +1,10 @@
 import { Paper, Button, Typography, Grid } from "@material-ui/core";
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import Title from "../../Components/Title/Title";
-import url from "../../utils/constants";
 import "./Dashboard.css";
 
-function Dashboard() {
-  const token = localStorage.getItem("authToken");
-  const [data, setData] = useState();
-  useEffect(() => {
-    axios
-      .get(`${url}/user/getProfile`, {
-        headers: { authorization: `Bearer ${token}` },
-      })
-      .then((res) => {
-        console.log(res.data);
-        setData(res.data.user);
-      })
-      .catch((err) => console.log(err));
-  }, [token]);
-
+function Dashboard({ data }) {
   return (
     <Grid container justify="center" className="wrapper">
       <Title>DASHBOARD</Title>
@@ -41,7 +25,7 @@ function Dashboard() {
             <Typography variant="body">{data?.email}</Typography>
           </Grid>
           <Grid item xs={12}>
-            <Link to="/team">
+            <Link to="/app/team">
               <Button variant="contained" color="primary">
                 {data?.team.length === 0
                   ? "Join or Create a Team"

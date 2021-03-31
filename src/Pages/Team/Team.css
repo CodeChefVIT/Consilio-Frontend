@@ -1,0 +1,18 @@
+.team-heading {
+	font-size: calc(1.5rem + 2.3vw);
+	color: var(--primary);
+	margin-bottom: 0;
+}
+
+.team-subhead {
+	font-size: calc(1rem + 1vw);
+	font-weight: normal;
+}
+
+.team-btn-div {
+	margin-top: 50px;
+}
+
+/* .team-content {
+	text-align: center;
+} */

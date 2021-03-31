@@ -1,3 +1,4 @@
+import { Hidden } from "@material-ui/core";
 import React, { useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import "./Navbar.css";
@@ -10,7 +11,9 @@ function Navbar(props) {
   }, [history.location]);
   return (
     <div className="landing-nav app-nav">
-      <h1>Consilio</h1>
+      <Hidden xsDown>
+        <h1>Consilio</h1>
+      </Hidden>
       <div className="nav-tab-div">
         <div className="nav-tabs-container">
           <Link

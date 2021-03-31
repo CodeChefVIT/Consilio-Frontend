@@ -12,7 +12,7 @@
 
 .loading-screen img {
 	width: 200px;
-	animation: spin 2s ease-in-out 1s infinite forwards;
+	animation: spin 2s ease-in-out infinite forwards;
 }
 
 @keyframes spin {

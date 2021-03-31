@@ -1,138 +1,47 @@
-import {
-  Paper,
-  Button,
-  Grid,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogContentText,
-  TextField,
-  DialogActions,
-  Typography,
-} from "@material-ui/core";
-import axios from "axios";
+import { Container, Grid } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
-import Title from "../../Components/Title/Title";
-import url from "../../utils/constants";
+import "./Team.css";
 
-function Team() {
-  const token = localStorage.getItem("authToken");
-  const [jointeam, setJoin] = useState(false);
-  const [createteam, setCreate] = useState(false);
+function Team({ data }) {
+  const [joinTeam, setJoin] = useState(false);
+  const [createTeam, setCreate] = useState(false);
+  const [alreadyJoined, setAlreadyJoined] = useState(false);
 
   useEffect(() => {
-    axios
-      .get(`${url}/team/user`, {
-        headers: {
-          authorization: `Bearer ${token}`,
-        },
-      })
-      .then((res) => {
-        console.log(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, [token]);
+    if (data.message && data.message === "Not in a team") {
+      setAlreadyJoined(false);
+    } else {
+      setAlreadyJoined(true);
+    }
+  }, [data]);
+
   return (
-    <Grid container justify="center" className="wrapper">
-      <Title>TEAM</Title>
-      <Paper variant="outlined" elevation={3} square className="content">
-        <Grid container spacing={2}>
-          <Typography variant="h5" style={{ margin: "auto" }}>
-            You are not in a team yet
-          </Typography>
-          <Grid item xs={12}>
-            <Button
-              variant="outlined"
-              color="primary"
-              onClick={() => {
-                setJoin(true);
-              }}
-            >
-              Join a Team
-            </Button>
-          </Grid>
-          <Grid item xs={12}>
-            <Button variant="contained" color="secondary">
-              Create a Team
-            </Button>
-          </Grid>
+    <Container className="wrapper">
+      <Grid container justify="center" style={{ height: "100%" }}>
+        <Grid
+          item
+          xs={12}
+          sm={6}
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            // alignItems: "center",
+            flexDirection: "column",
+          }}
+          className="team-content"
+        >
+          <h1 className="team-heading">The more the merrier</h1>
+          <h3 className="team-subhead">
+            Your teammates understand you better than anyone!{" "}
+          </h3>
+          <div className="team-btn-div">
+            <button className="primary-button">Join a team</button>
+            <button className="primary-button">Create a team</button>
+          </div>
         </Grid>
-      </Paper>
-      <Dialog
-        open={jointeam}
-        onClose={() => {
-          setJoin(false);
-        }}
-        aria-labelledby="form-dialog-title"
-      >
-        <DialogTitle id="form-dialog-title">Join a Team</DialogTitle>
-        <DialogContent>
-          <DialogContentText>
-            To join a team, enter team code. If you don't have a team yet, hop
-            on to our discord server.
-          </DialogContentText>
-          <TextField
-            autoFocus
-            margin="dense"
-            id="name"
-            label="Team Code"
-            type="text"
-            fullWidth
-          />
-        </DialogContent>
-        <DialogActions>
-          <Button
-            onClick={() => {
-              setJoin(false);
-            }}
-            color="primary"
-          >
-            Cancel
-          </Button>
-          <Button onClick={() => {}} color="primary">
-            Join
-          </Button>
-        </DialogActions>
-      </Dialog>
-      <Dialog
-        open={createteam}
-        onClose={() => {
-          setCreate(false);
-        }}
-        aria-labelledby="form-dialog-title"
-      >
-        <DialogTitle id="form-dialog-title">Join a Team</DialogTitle>
-        <DialogContent>
-          <DialogContentText>
-            To join a team, enter team code. If you don't have a team yet, hop
-            on to our discord server.
-          </DialogContentText>
-          <TextField
-            autoFocus
-            margin="dense"
-            id="name"
-            label="Team Code"
-            type="text"
-            fullWidth
-          />
-        </DialogContent>
-        <DialogActions>
-          <Button
-            onClick={() => {
-              setCreate(false);
-            }}
-            color="primary"
-          >
-            Cancel
-          </Button>
-          <Button onClick={() => {}} color="primary">
-            Create
-          </Button>
-        </DialogActions>
-      </Dialog>
-    </Grid>
+        <Grid item xs={12} sm={6}></Grid>
+      </Grid>
+    </Container>
   );
 }
 
