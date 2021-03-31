@@ -12,6 +12,7 @@
 
 .landing-nav {
 	padding: 20px 5%;
+	color: white !important;
 }
 
 .login-head {
@@ -103,4 +104,8 @@
 	/* background-color: #229bb6; */
 	border-width: 3px;
 	/* color: white; */
+}
+
+.landing-image {
+	width: 500px;
 }

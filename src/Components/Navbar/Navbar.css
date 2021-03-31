@@ -1,0 +1,37 @@
+.app-nav {
+	display: flex;
+}
+
+.nav-tab-div {
+	display: flex;
+	flex: 1;
+	justify-content: center;
+	align-items: center;
+}
+
+.nav-tabs-container {
+	height: 50px;
+	width: 270px;
+	background-color: #27a3be;
+	border-radius: 15px;
+	display: flex;
+	padding: 10px;
+}
+
+.nav-tab {
+	flex: 1;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: bold;
+	cursor: pointer;
+	margin: 0 10px;
+	text-decoration: none;
+}
+
+.nav-tab.active {
+	background-color: white;
+	color: black !important;
+	border-radius: 15px;
+}

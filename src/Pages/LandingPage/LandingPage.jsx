@@ -65,7 +65,22 @@ const LandingPage = () => {
                 </div>
               </div>
             </Grid>
-            <Grid item xs={12} sm={6}></Grid>
+            <Grid
+              item
+              xs={12}
+              sm={6}
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <img
+                src="/assets/design.svg"
+                alt="design"
+                className="landing-image"
+              />
+            </Grid>
           </Grid>
         </Container>
       </div>

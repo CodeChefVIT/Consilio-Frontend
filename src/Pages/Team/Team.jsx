@@ -19,7 +19,7 @@ function Team() {
   const token = localStorage.getItem("authToken");
   const [jointeam, setJoin] = useState(false);
   const [createteam, setCreate] = useState(false);
-  
+
   useEffect(() => {
     axios
       .get(`${url}/team/user`, {
@@ -97,7 +97,7 @@ function Team() {
         </DialogActions>
       </Dialog>
       <Dialog
-        open={createTeam}
+        open={createteam}
         onClose={() => {
           setCreate(false);
         }}
