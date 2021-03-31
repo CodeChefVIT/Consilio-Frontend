@@ -1,4 +1,3 @@
-import { AppBar, Button, Toolbar } from "@material-ui/core";
 import React, { useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import "./Navbar.css";

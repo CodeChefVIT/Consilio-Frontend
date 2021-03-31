@@ -1,4 +1,4 @@
-import { Container, Grid, TextField } from "@material-ui/core";
+import { Container, Grid, Hidden } from "@material-ui/core";
 import React from "react";
 import "./LandingPage.css";
 import "./GoogleBtn.css";
@@ -25,7 +25,17 @@ const LandingPage = () => {
       <div className="landing-content">
         <Container>
           <Grid container spacing={3}>
-            <Grid item xs={12} sm={6}>
+            <Grid
+              item
+              xs={12}
+              sm={6}
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                flexDirection: "column",
+              }}
+            >
               <h1 className="login-head">Welcome to Consilio</h1>
               <h3 className="login-subhead">
                 Welcome back! Please login to your account.
@@ -56,6 +66,7 @@ const LandingPage = () => {
                       <img
                         className="google-icon"
                         src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+                        alt="google"
                       />
                     </div>
                     <p className="btn-text">
@@ -65,22 +76,24 @@ const LandingPage = () => {
                 </div>
               </div>
             </Grid>
-            <Grid
-              item
-              xs={12}
-              sm={6}
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <img
-                src="/assets/design.svg"
-                alt="design"
-                className="landing-image"
-              />
-            </Grid>
+            <Hidden xsDown>
+              <Grid
+                item
+                xs={12}
+                sm={6}
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <img
+                  src="/assets/design.svg"
+                  alt="design"
+                  className="landing-image"
+                />
+              </Grid>
+            </Hidden>
           </Grid>
         </Container>
       </div>

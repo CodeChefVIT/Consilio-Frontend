@@ -1,5 +1,6 @@
 .app-nav {
 	display: flex;
+	position: relative;
 }
 
 .nav-tab-div {
@@ -10,12 +11,12 @@
 }
 
 .nav-tabs-container {
-	height: 50px;
+	height: 45px;
 	width: 270px;
 	background-color: #27a3be;
 	border-radius: 15px;
 	display: flex;
-	padding: 10px;
+	padding: 5px;
 }
 
 .nav-tab {

@@ -19,6 +19,7 @@
 	color: #2CC8EB;
 	font-weight: 900;
 	font-size: calc(1rem + 3vw);
+	margin-bottom: 0;
 }
 
 .login-subhead {
