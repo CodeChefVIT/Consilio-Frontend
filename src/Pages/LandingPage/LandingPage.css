@@ -1,42 +1,106 @@
 .landing-page {
-	font-family: "Orbitron", sans-serif !important;
+	font-family: "Maven Pro", sans-serif !important;
 	color: white;
-	animation: hue-change 10s infinite linear;
-	animation-fill-mode: forwards;
 }
 
-@keyframes hue-change {
-	0% {
-		filter: hue-rotate(0);
-	}
-	50% {
-		filter: hue-rotate(0);
-	}
-	100% {
-		filter: hue-rotate(360deg);
-	}
+.landing-content {
+	height: calc(100vh - 121px);
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
-.title-section {
+.landing-nav {
+	padding: 20px 5%;
+}
+
+.login-head {
+	color: #2CC8EB;
+	font-weight: 900;
+	font-size: calc(1rem + 3vw);
+}
+
+.login-subhead {
+	font-weight: normal;
+}
+
+#login-form {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+	margin: 50px 0;
 }
 
-.title-section h1 {
-	margin: 10px;
+#login-form .MuiTextField-root {
+	width: 100% !important;
 }
 
-.landing-welcome {
-	font-size: calc(1rem + 1.5vw);
-	font-weight: 500;
+#login-form .MuiOutlinedInput-notchedOutline {
+	border-radius: 0 !important;
+	border-color: #2CC8EB !important;
+	/* background-color: white !important; */
+	border-left-width: 5px !important;
+	color: white !important;
 }
 
-.landing-title {
-	text-align: center;
-	font-size: calc(3rem + 2vw);
-	font-weight: 900;
-	/* text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FF1177, 0 0 35px #FF1177, 0 0 40px #FF1177, 0 0 50px #FF1177, 0 0 75px #FF1177; */
-	text-shadow: 0 0 20px #fff, 0 0 30px #FF1177, 0 0 50px #FF1177;
+#login-form .MuiInputLabel-outlined, .MuiOutlinedInput-input {
+	color: white !important;
+	font-family: "Maven Pro", sans-serif !important;
+}
+
+#login-form .MuiInputLabel-outlined.MuiInputLabel-shrink {
+	color: #2CC8EB !important;
+}
+
+.login-field {
+	margin: 10px 0 !important;
+}
+
+.btn-bar {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	margin-top: 50px;
+}
+
+.btn-bar .primary-button {
+	width: 100px;
+	height: 50px;
+	color: white;
+	background-color: #2CC8EB;
+	border: none;
+	border-radius: 6px;
+	font-weight: bold;
+	font-size: 1rem;
+	cursor: pointer;
+	font-family: "Maven Pro", sans-serif !important;
+	margin-right: 5%;
+	transition: 0.2s all ease-in-out;
+}
+
+.btn-bar .primary-button:hover {
+	background-color: #229bb6;
+	color: white;
+}
+
+.btn-bar .secondary-button {
+	width: 100px;
+	height: 50px;
+	color: white;
+	background-color: transparent;
+	border: 1px solid #2CC8EB;
+	color: #2CC8EB;
+	border-radius: 6px;
+	font-weight: bold;
+	font-size: 1rem;
+	cursor: pointer;
+	font-family: "Maven Pro", sans-serif !important;
+	transition: 0.2s all ease-in-out;
+}
+
+.btn-bar .secondary-button:hover {
+	/* background-color: #229bb6; */
+	border-width: 3px;
+	/* color: white; */
 }

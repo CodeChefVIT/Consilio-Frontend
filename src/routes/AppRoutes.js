@@ -9,8 +9,8 @@ const AppRoutes = () => {
     <>
       <Navbar />
       <Switch>
-        <Route exact path="/dashboard" component={Dashboard}></Route>
-        <Route exact path="/team" component={Team}></Route>
+        <Route exact path="/app/dashboard" component={Dashboard}></Route>
+        <Route exact path="/app/team" component={Team}></Route>
       </Switch>
     </>
   );
