@@ -1,0 +1,42 @@
+.landing-page {
+	font-family: "Orbitron", sans-serif !important;
+	color: white;
+	animation: hue-change 10s infinite linear;
+	animation-fill-mode: forwards;
+}
+
+@keyframes hue-change {
+	0% {
+		filter: hue-rotate(0);
+	}
+	50% {
+		filter: hue-rotate(0);
+	}
+	100% {
+		filter: hue-rotate(360deg);
+	}
+}
+
+.title-section {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.title-section h1 {
+	margin: 10px;
+}
+
+.landing-welcome {
+	font-size: calc(1rem + 1.5vw);
+	font-weight: 500;
+}
+
+.landing-title {
+	text-align: center;
+	font-size: calc(3rem + 2vw);
+	font-weight: 900;
+	/* text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FF1177, 0 0 35px #FF1177, 0 0 40px #FF1177, 0 0 50px #FF1177, 0 0 75px #FF1177; */
+	text-shadow: 0 0 20px #fff, 0 0 30px #FF1177, 0 0 50px #FF1177;
+}
