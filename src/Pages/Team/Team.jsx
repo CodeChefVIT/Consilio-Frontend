@@ -39,7 +39,7 @@ function Team({ data }) {
         >
           <h1 className="team-heading">The more the merrier</h1>
           <h3 className="team-subhead">
-            Your teammates understand you better than anyone!{" "}
+            Your teammates understand you better than anyone!
           </h3>
           {!alreadyJoined ? (
             <div className="team-btn-div">
