@@ -1,11 +1,11 @@
-import { Grid, Container, TextField, Button } from "@material-ui/core";
+import { Grid, Container, Button } from "@material-ui/core";
 import React, { useState, useEffect, useRef } from "react";
 import CanvasDraw from "react-canvas-draw";
 import { SliderPicker } from "react-color";
+import TeamCheck from "../../Components/TeamCheck/TeamCheck";
 import "./Dashboard.css";
 
 function Dashboard({ data }) {
-  const [alreadyJoined, setAlreadyJoined] = useState(false);
   const [color, setColor] = useState("#000000");
 
   const canvas = useRef(null);
@@ -24,13 +24,6 @@ function Dashboard({ data }) {
     };
   }, []);
 
-  useEffect(() => {
-    if (data.team.length === 0) {
-      setAlreadyJoined(false);
-    } else {
-      setAlreadyJoined(true);
-    }
-  }, [data]);
   return (
     <Container className="wrapper">
       <Grid container justify="center" style={{ height: "100%" }}>
@@ -41,7 +34,6 @@ function Dashboard({ data }) {
           style={{
             display: "flex",
             justifyContent: "center",
-            // alignItems: "center",
             flexDirection: "column",
           }}
           className="dash-content"
@@ -50,11 +42,7 @@ function Dashboard({ data }) {
           <h1 className="dash-heading">
             Hello <wbr /> {data?.name}
           </h1>
-          {alreadyJoined ? (
-            <h3 className="dash-subhead">Team {data?.team.name}</h3>
-          ) : (
-            <></>
-          )}
+          <TeamCheck data={data} />
         </Grid>
         <Grid
           item

@@ -1,10 +1,12 @@
 import { Container, Grid, Hidden } from "@material-ui/core";
-import React from "react";
+import React, { useEffect } from "react";
 import "./LandingPage.css";
 import "./GoogleBtn.css";
 import axios from "axios";
+import { useHistory } from "react-router";
 
 const LandingPage = () => {
+  const history = useHistory();
   const handleButton = async () => {
     const url = `${process.env.REACT_APP_BACKEND_URL}/auth/getUrl`;
     try {
@@ -16,6 +18,13 @@ const LandingPage = () => {
       console.log(error);
     }
   };
+
+  useEffect(() => {
+    let token = localStorage.getItem("authToken");
+    if (token && token !== "") {
+      history.replace("/app/dashboard");
+    }
+  }, []);
 
   return (
     <div className="landing-page">
@@ -40,25 +49,6 @@ const LandingPage = () => {
               <h3 className="login-subhead">
                 Welcome back! Please login to your account.
               </h3>
-              {/* <form id="login-form">
-                <TextField
-                  label="Email Address"
-                  variant="outlined"
-                  className="login-field"
-                />
-
-                <TextField
-                  label="Password"
-                  variant="outlined"
-                  type="password"
-                  className="login-field"
-                />
-
-                <div className="btn-bar">
-                  <button className="primary-button">Login</button>
-                  <button className="secondary-button">Sign Up</button>
-                </div>
-              </form> */}
               <div className="btn-bar">
                 <div className="google-link" onClick={handleButton}>
                   <div className="google-btn">
