@@ -15,7 +15,9 @@ function TeamCheck({ data }) {
   return (
     <>
       {alreadyJoined ? (
-        <h3 className="dash-subhead">Team {data?.team.name}</h3>
+        <h3 className="dash-subhead">
+          Team <strong>{data?.team.name}</strong>
+        </h3>
       ) : (
         <Link to="/app/team">
           <button className="primary-button">Join/Create a team</button>

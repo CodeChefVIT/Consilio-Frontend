@@ -11,7 +11,9 @@ function Navbar(props) {
   }, [history.location]);
   return (
     <div className="landing-nav app-nav">
-      <h1 style={{ margin: "10px auto auto 20px" }}>Consilio</h1>
+      <Hidden xsDown>
+        <h1 style={{ margin: "10px auto auto 20px" }}>Consilio</h1>
+      </Hidden>
       <div className="nav-tab-div">
         <div className="nav-tabs-container">
           <Link

@@ -25,7 +25,7 @@ function Dashboard({ data }) {
   }, []);
 
   return (
-    <Container className="wrapper">
+    <Container className="wrapper" style={{ height: "100%" }}>
       <Grid container justify="center" style={{ height: "100%" }}>
         <Grid
           item
@@ -38,11 +38,32 @@ function Dashboard({ data }) {
           }}
           className="dash-content"
         >
-          <img src={data?.avatar} alt="User" className="dash-avatar" />
-          <h1 className="dash-heading">
-            Hello <wbr /> {data?.name}
-          </h1>
+          <div className="img-name-container">
+            <img src={data?.avatar} alt="User" className="dash-avatar" />
+            <h1 className="dash-heading">
+              Hello, <wbr /> {data?.name}!
+            </h1>
+          </div>
           <TeamCheck data={data} />
+          <div className="drawing-info-container">
+            <div className="drawing-info-div">
+              <h2>Draw and win!</h2>
+              <ul>
+                <li>Draw your best art in the given canvas!</li>
+                <li>
+                  Take a screenshot of your drawing, and post on any social
+                  media, tagging <strong>@codechefvit</strong>
+                </li>
+                <li>
+                  <strong>
+                    Stand a chance to win a special prize from us! The one with
+                    the best drawing will recieve swags and goodies!
+                  </strong>
+                </li>
+                <li>So get your artistic caps on, and paint a masterpiece!</li>
+              </ul>
+            </div>
+          </div>
         </Grid>
         <Grid
           item

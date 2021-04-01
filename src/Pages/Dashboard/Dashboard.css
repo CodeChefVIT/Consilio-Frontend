@@ -2,12 +2,14 @@
   width: 96px;
   height: 96px;
   border-radius: 15px;
+  margin-right: 30px;
 }
 
 .dash-heading {
-  font-size: calc(1.3rem + 2vw);
+  font-size: calc(1.1rem + 2vw);
   color: var(--primary);
   margin-bottom: 0;
+  margin-top: 0;
 }
 
 .dash-subhead {
@@ -26,4 +28,38 @@
 .dash-content {
   padding-right: 40px;
   padding-bottom: 40px;
+}
+
+.drawing-info-container {
+  width: 100%;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.drawing-info-div {
+  width: 80%;
+  padding: 20px;
+  background-color: white;
+  color: black;
+  border-radius: 4px;
+}
+
+@media screen and (max-width:600px) {
+  .drawing-info-div {
+    width: 100%;
+  }
+  .dash-content {
+    padding-right: 0;
+  }
+}
+
+.drawing-info-div li {
+  margin: 10px 0;
+}
+
+.img-name-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

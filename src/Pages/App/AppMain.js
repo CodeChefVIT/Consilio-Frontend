@@ -41,7 +41,7 @@ const AppMain = () => {
           },
         })
         .then((res) => {
-          console.log(res.data)
+          console.log(res.data);
           setTeamDetails(res.data);
         });
     } catch (error) {
@@ -67,29 +67,31 @@ const AppMain = () => {
   return (
     <>
       <Navbar />
-      <Switch>
-        <Route
-          exact
-          path="/app/dashboard"
-          component={(props) => (
-            <Dashboard {...props} data={dashboardDetails} />
-          )}
-        ></Route>
-        <Route
-          exact
-          path="/app/team"
-          component={(props) => (
-            <Team {...props} data={teamDetails} refresh={setupApp} />
-          )}
-        ></Route>
-        <Route
-          exact
-          path="/app/submission"
-          component={(props) => (
-            <Submission {...props} data={teamDetails} refresh={setupApp} />
-          )}
-        ></Route>
-      </Switch>
+      <div className="all-container">
+        <Switch>
+          <Route
+            exact
+            path="/app/dashboard"
+            component={(props) => (
+              <Dashboard {...props} data={dashboardDetails} />
+            )}
+          ></Route>
+          <Route
+            exact
+            path="/app/team"
+            component={(props) => (
+              <Team {...props} data={teamDetails} refresh={setupApp} />
+            )}
+          ></Route>
+          <Route
+            exact
+            path="/app/submission"
+            component={(props) => (
+              <Submission {...props} data={teamDetails} refresh={setupApp} />
+            )}
+          ></Route>
+        </Switch>
+      </div>
     </>
   );
 };

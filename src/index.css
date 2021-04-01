@@ -33,3 +33,10 @@ a {
   flex-direction: column;
   color: white;
 }
+
+.all-container {
+  min-height: calc(100vh - 90px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

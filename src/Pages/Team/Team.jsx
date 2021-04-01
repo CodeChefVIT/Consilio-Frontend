@@ -1,4 +1,4 @@
-import { CircularProgress, Container, Grid } from "@material-ui/core";
+import { CircularProgress, Container, Grid, Hidden } from "@material-ui/core";
 import { Done, FilterNone } from "@material-ui/icons";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
@@ -120,12 +120,27 @@ function Team({ data, refresh }) {
   return (
     <Container className="wrapper">
       <Grid container justify="center" style={{ height: "100%" }}>
-        <Grid item xs={12} sm={4}></Grid>
+        <Hidden xsDown>
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            // justify="center"
+            alignItems="center"
+            style={{ display: "flex" }}
+          >
+            <img
+              src="/assets/teams.svg"
+              alt="team"
+              className="landing-image team-image"
+            />
+          </Grid>
+        </Hidden>
 
         <Grid
           item
           xs={12}
-          sm={8}
+          sm={6}
           style={{
             display: "flex",
             justifyContent: "center",
@@ -151,7 +166,8 @@ function Team({ data, refresh }) {
                       display: "flex",
                       justifyContent: "center",
                       flexDirection: "column",
-                      width:'100%'
+                      alignItems: "center",
+                      width: "100%",
                     }}
                   >
                     <div className="input-container">

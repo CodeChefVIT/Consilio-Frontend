@@ -165,29 +165,31 @@ function Submission({ data, refresh }) {
                 name="idea"
               />
               {!data.teams.submitted ? (
-                <div className="action-btn-container">
-                  <button className="primary-button" type="submit">
-                    {loading ? (
-                      <CircularProgress color="secondary" size={24} />
-                    ) : (
-                      "Save"
-                    )}
-                  </button>
-                  <button
-                    className="secondary-button"
-                    onClick={() => Finalize()}
-                  >
-                    {loading2 ? (
-                      <CircularProgress color="secondary" size={24} />
-                    ) : (
-                      "Submit"
-                    )}
-                  </button>
-                  <h2>
+                <>
+                  <div className="action-btn-container">
+                    <button className="primary-button" type="submit">
+                      {loading ? (
+                        <CircularProgress color="secondary" size={24} />
+                      ) : (
+                        "Save"
+                      )}
+                    </button>
+                    <button
+                      className="secondary-button"
+                      onClick={() => Finalize()}
+                    >
+                      {loading2 ? (
+                        <CircularProgress color="secondary" size={24} />
+                      ) : (
+                        "Submit"
+                      )}
+                    </button>
+                  </div>
+                  <h3 style={{ textAlign: "center" }}>
                     Once Submitted, you will not be able to change your
                     submission
-                  </h2>
-                </div>
+                  </h3>
+                </>
               ) : (
                 <></>
               )}
