@@ -18,7 +18,6 @@
 .join-container {
 	display: flex;
 	justify-content: center;
-	align-items: center;
 	flex-direction: column;
 	width: 100%;
 }
@@ -60,7 +59,6 @@
 .action-btn-container {
 	width: 100%;
 	display: flex;
-	justify-content: center;
 	align-items: center;
 }
 

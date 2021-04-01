@@ -120,12 +120,12 @@ function Team({ data, refresh }) {
   return (
     <Container className="wrapper">
       <Grid container justify="center" style={{ height: "100%" }}>
-        <Grid item xs={12} sm={6}></Grid>
+        <Grid item xs={12} sm={4}></Grid>
 
         <Grid
           item
           xs={12}
-          sm={6}
+          sm={8}
           style={{
             display: "flex",
             justifyContent: "center",
@@ -150,8 +150,8 @@ function Team({ data, refresh }) {
                     style={{
                       display: "flex",
                       justifyContent: "center",
-                      alignItems: "center",
                       flexDirection: "column",
+                      width:'100%'
                     }}
                   >
                     <div className="input-container">

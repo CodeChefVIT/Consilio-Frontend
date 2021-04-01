@@ -61,6 +61,7 @@ function Submission({ data, refresh }) {
         })
         .then((res) => {
           console.log(res);
+          refresh();
         });
     } catch (error) {
       console.log(error);
@@ -74,9 +75,9 @@ function Submission({ data, refresh }) {
       setAlreadyJoined(false);
     } else {
       setAlreadyJoined(true);
+      if (data.teams.idea) setIdea(data.teams.idea);
+      if (data.teams.submission) setLink(data.teams.submission);
     }
-    if (data.teams.idea) setIdea(data.teams.idea);
-    if (data.teams.submission) setLink(data.teams.submission);
   }, [data]);
 
   return (
@@ -96,7 +97,7 @@ function Submission({ data, refresh }) {
         >
           <h1 className="team-heading">Great Ideas are meant to happen</h1>
           {!alreadyJoined ? (
-            <Link to="/app/dashboard">
+            <Link to="/app/team">
               <button className="primary-button">Join/Create a team</button>
             </Link>
           ) : (
@@ -182,6 +183,10 @@ function Submission({ data, refresh }) {
                       "Submit"
                     )}
                   </button>
+                  <h2>
+                    Once Submitted, you will not be able to change your
+                    submission
+                  </h2>
                 </div>
               ) : (
                 <></>
