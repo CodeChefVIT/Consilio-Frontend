@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import "./Team.css";
 
 function Team({ data, refresh }) {
-  const { handleSubmit, register, errors } = useForm();
+  const { handleSubmit, register } = useForm();
   const [joinTeam, setJoin] = useState(false);
   const [createTeam, setCreate] = useState(false);
   const [alreadyJoined, setAlreadyJoined] = useState(false);
@@ -16,9 +16,33 @@ function Team({ data, refresh }) {
   const [copied, setCopied] = useState(false);
 
   // console.log(data);
-  const handleJoinTeam = () => {
-    console.log(joinCode);
+  const handleJoinTeam = async () => {
+    setLoading(true);
+    const url = `${process.env.REACT_APP_BACKEND_URL}/team/join`;
+    const token = localStorage.getItem("authToken");
+
+    const data = {
+      code: joinCode,
+    };
+
+    try {
+      await axios
+        .post(url, data, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((res) => {
+          console.log(res);
+          refresh();
+        });
+    } catch (error) {
+      console.log(error);
+    }
+
+    setLoading(false);
   };
+
   const handleCreateTeam = async () => {
     setLoading(true);
     const url = `${process.env.REACT_APP_BACKEND_URL}/team/make`;
@@ -35,6 +59,33 @@ function Team({ data, refresh }) {
             Authorization: `Bearer ${token}`,
           },
         })
+        .then((res) => {
+          console.log(res);
+          refresh();
+        });
+    } catch (error) {
+      console.log(error);
+    }
+
+    setLoading(false);
+  };
+
+  const handleLeave = async () => {
+    setLoading(true);
+    const url = `${process.env.REACT_APP_BACKEND_URL}/team/leave`;
+    const token = localStorage.getItem("authToken");
+
+    try {
+      await axios
+        .post(
+          url,
+          {},
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        )
         .then((res) => {
           console.log(res);
           refresh();
@@ -89,27 +140,43 @@ function Team({ data, refresh }) {
           </h3>
           {!alreadyJoined ? (
             <div className="team-btn-div">
+              {/************ For joining a team **************/}
               {joinTeam ? (
                 <form
                   className="join-container"
                   onSubmit={handleSubmit(handleJoinTeam)}
                 >
-                  <div className="input-container">
-                    <input
-                      type="text"
-                      // value={joinCode}
-                      className="team-input"
-                      defaultValue={joinCode}
-                      placeholder="enter team code"
-                      onChange={(e) => setJoinCode(e.target.value)}
-                      ref={register({ required: true })}
-                      name="joinCode"
-                    />
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      flexDirection: "column",
+                    }}
+                  >
+                    <div className="input-container">
+                      <input
+                        type="text"
+                        // value={joinCode}
+                        className="team-input"
+                        defaultValue={joinCode}
+                        placeholder="enter team code"
+                        onChange={(e) =>
+                          setJoinCode(e.target.value.toUpperCase())
+                        }
+                        ref={register({ required: true })}
+                        name="joinCode"
+                      />
+                    </div>
+                    <p>
+                      The team code is a 5 letter unique code shared by the
+                      leader
+                    </p>
                   </div>
                   <div className="action-btn-container">
                     <button
                       className="primary-button"
-                      // onClick={handleSubmit(submit)}
+                      // onClick={handleSubmit(handleJoinTeam)}
                       type="submit"
                     >
                       {loading ? (
@@ -143,6 +210,7 @@ function Team({ data, refresh }) {
                       name="newTeamName"
                     />
                   </div>
+
                   <div className="action-btn-container">
                     <button
                       className="primary-button"
@@ -216,6 +284,13 @@ function Team({ data, refresh }) {
                     <>
                       <FilterNone style={{ marginRight: "10px" }} /> Copy Code
                     </>
+                  )}
+                </button>
+                <button className="secondary-button" onClick={handleLeave}>
+                  {loading ? (
+                    <CircularProgress color="primary" size={24} />
+                  ) : (
+                    "Leave Team"
                   )}
                 </button>
               </div>
