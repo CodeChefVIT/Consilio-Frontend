@@ -11,9 +11,7 @@ function Navbar(props) {
   }, [history.location]);
   return (
     <div className="landing-nav app-nav">
-      <Hidden xsDown>
-        <h1>Consilio</h1>
-      </Hidden>
+      <h1 style={{ margin: "10px auto auto 20px" }}>Consilio</h1>
       <div className="nav-tab-div">
         <div className="nav-tabs-container">
           <Link
@@ -44,6 +42,7 @@ function Navbar(props) {
             className="nav-tab"
             onClick={() => {
               localStorage.clear();
+              history.push("/");
             }}
           >
             Logout
