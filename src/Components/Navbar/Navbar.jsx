@@ -1,4 +1,4 @@
-import { Hidden } from "@material-ui/core";
+import { ButtonBase, Hidden } from "@material-ui/core";
 import React, { useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import "./Navbar.css";
@@ -40,6 +40,14 @@ function Navbar(props) {
           >
             Submission
           </Link>
+          <ButtonBase
+            className="nav-tab"
+            onClick={() => {
+              localStorage.clear();
+            }}
+          >
+            Logout
+          </ButtonBase>
         </div>
       </div>
     </div>

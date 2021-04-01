@@ -1,38 +1,46 @@
 .app-nav {
-	display: flex;
-	position: relative;
+  display: flex;
+  position: relative;
 }
 
 .nav-tab-div {
-	display: flex;
-	flex: 1;
-	justify-content: center;
-	align-items: center;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
 }
 
 .nav-tabs-container {
-	height: 45px;
-	width: 300px;
-	background-color: #27a3be;
-	border-radius: 15px;
-	display: flex;
-	padding: 5px;
+  width: auto;
+  background-color: #27a3be;
+  border-radius: 15px;
+  display: flex;
+  padding: 5px;
+  flex-wrap: wrap;
 }
 
 .nav-tab {
-	flex: 1;
-	height: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-weight: bold;
-	cursor: pointer;
-	margin: 0 0;
-	text-decoration: none;
+  flex: 1 !important;
+  padding: 10px !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  font-weight: bold !important;
+  cursor: pointer !important;
+  margin: 0 0 !important;
+  font-size: 1rem !important;
+  text-decoration: none !important;
+  font-family: "Maven Pro", sans-serif !important;
 }
 
 .nav-tab.active {
-	background-color: white;
-	color: black !important;
-	border-radius: 15px;
+  background-color: white;
+  color: black !important;
+  border-radius: 15px;
+}
+
+@media screen and (max-width: 600px) {
+  .nav-tabs-container {
+    height: auto;
+  }
 }
