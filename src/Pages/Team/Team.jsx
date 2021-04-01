@@ -1,17 +1,61 @@
-import { Container, Grid } from "@material-ui/core";
+import { CircularProgress, Container, Grid } from "@material-ui/core";
+import { Done, FilterNone } from "@material-ui/icons";
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import "./Team.css";
 
-function Team({ data }) {
+function Team({ data, refresh }) {
   const { handleSubmit, register, errors } = useForm();
   const [joinTeam, setJoin] = useState(false);
   const [createTeam, setCreate] = useState(false);
   const [alreadyJoined, setAlreadyJoined] = useState(false);
   const [joinCode, setJoinCode] = useState("");
+  const [newTeamName, setNewTeamName] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [copied, setCopied] = useState(false);
 
-  const submit = () => {
+  // console.log(data);
+  const handleJoinTeam = () => {
     console.log(joinCode);
+  };
+  const handleCreateTeam = async () => {
+    setLoading(true);
+    const url = `${process.env.REACT_APP_BACKEND_URL}/team/make`;
+    const token = localStorage.getItem("authToken");
+
+    const data = {
+      name: newTeamName,
+    };
+
+    try {
+      await axios
+        .post(url, data, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((res) => {
+          console.log(res);
+          refresh();
+        });
+    } catch (error) {
+      console.log(error);
+    }
+
+    setLoading(false);
+  };
+
+  const handleCopy = () => {
+    navigator.clipboard
+      .writeText(data.teams.code)
+      .then(() => {
+        setCopied(true);
+        setTimeout(() => {
+          setCopied(false);
+        }, 3000);
+      })
+      .catch((err) => console.log(err));
   };
 
   useEffect(() => {
@@ -25,6 +69,8 @@ function Team({ data }) {
   return (
     <Container className="wrapper">
       <Grid container justify="center" style={{ height: "100%" }}>
+        <Grid item xs={12} sm={6}></Grid>
+
         <Grid
           item
           xs={12}
@@ -46,26 +92,31 @@ function Team({ data }) {
               {joinTeam ? (
                 <form
                   className="join-container"
-                  onSubmit={handleSubmit(submit)}
+                  onSubmit={handleSubmit(handleJoinTeam)}
                 >
                   <div className="input-container">
                     <input
                       type="text"
                       // value={joinCode}
                       className="team-input"
+                      defaultValue={joinCode}
                       placeholder="enter team code"
                       onChange={(e) => setJoinCode(e.target.value)}
                       ref={register({ required: true })}
                       name="joinCode"
                     />
                   </div>
-                  <div style={{ width: "100%", textAlign: "center" }}>
+                  <div className="action-btn-container">
                     <button
                       className="primary-button"
                       // onClick={handleSubmit(submit)}
                       type="submit"
                     >
-                      Join
+                      {loading ? (
+                        <CircularProgress color="secondary" size={24} />
+                      ) : (
+                        "Join"
+                      )}
                     </button>
                     <button
                       className="secondary-button"
@@ -76,7 +127,42 @@ function Team({ data }) {
                   </div>
                 </form>
               ) : createTeam ? (
-                <></>
+                <form
+                  className="join-container"
+                  onSubmit={handleSubmit(handleCreateTeam)}
+                >
+                  <div className="input-container">
+                    <input
+                      type="text"
+                      // value={joinCode}
+                      className="team-input"
+                      defaultValue={newTeamName}
+                      placeholder="enter team name"
+                      onChange={(e) => setNewTeamName(e.target.value)}
+                      ref={register({ required: true })}
+                      name="newTeamName"
+                    />
+                  </div>
+                  <div className="action-btn-container">
+                    <button
+                      className="primary-button"
+                      // onClick={handleSubmit(submit)}
+                      type="submit"
+                    >
+                      {loading ? (
+                        <CircularProgress color="secondary" size={24} />
+                      ) : (
+                        "Create"
+                      )}
+                    </button>
+                    <button
+                      className="secondary-button"
+                      onClick={() => setCreate(false)}
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                </form>
               ) : (
                 <>
                   <button
@@ -85,13 +171,57 @@ function Team({ data }) {
                   >
                     Join a team
                   </button>
-                  <button className="primary-button">Create a team</button>
+                  <button
+                    className="primary-button"
+                    onClick={() => setCreate(true)}
+                  >
+                    Create a team
+                  </button>
                 </>
               )}
             </div>
-          ) : null}
+          ) : (
+            <div className="already-joined-div">
+              <h3>
+                You are a part of team{" "}
+                <span style={{ color: "#2CC8EB" }}>{data.teams.name}</span>
+              </h3>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  flexDirection: "column",
+                }}
+              >
+                <div className="input-container">
+                  <input
+                    type="text"
+                    value={data.teams.code}
+                    className="team-input"
+                    // defaultValue={newTeamName}
+                  />
+                </div>
+                <p>
+                  Share this code with your teammate to add them to the team
+                </p>
+              </div>
+              <div className="action-btn-container">
+                <button className="primary-button" onClick={handleCopy}>
+                  {copied ? (
+                    <>
+                      <Done style={{ marginRight: "10px" }} /> Copied!
+                    </>
+                  ) : (
+                    <>
+                      <FilterNone style={{ marginRight: "10px" }} /> Copy Code
+                    </>
+                  )}
+                </button>
+              </div>
+            </div>
+          )}
         </Grid>
-        <Grid item xs={12} sm={6}></Grid>
       </Grid>
     </Container>
   );

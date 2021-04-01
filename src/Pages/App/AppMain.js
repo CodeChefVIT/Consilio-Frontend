@@ -76,7 +76,9 @@ const AppMain = () => {
         <Route
           exact
           path="/app/team"
-          component={(props) => <Team {...props} data={teamDetails} />}
+          component={(props) => (
+            <Team {...props} data={teamDetails} refresh={setupApp} />
+          )}
         ></Route>
       </Switch>
     </>

@@ -82,6 +82,9 @@
 	margin: 5px 0;
 	margin-right: 5%;
 	transition: 0.2s all ease-in-out;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .primary-button:hover {
@@ -105,8 +108,12 @@
 	font-weight: bold;
 	font-size: 1rem;
 	cursor: pointer;
+	margin: 5px 0;
 	font-family: "Maven Pro", sans-serif !important;
 	transition: 0.2s all ease-in-out;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .secondary-button:hover {
