@@ -8,8 +8,8 @@ import "./Submission.css";
 function Submission({ data, refresh }) {
   const { handleSubmit, register } = useForm();
   const [alreadyJoined, setAlreadyJoined] = useState(false);
-  const [idea, setIdea] = useState("");
-  const [link, setLink] = useState("");
+  const [idea, setIdea] = useState(data.teams.idea);
+  const [link, setLink] = useState(data.teams.submission);
   const [loading, setLoading] = useState(false);
   const [loading2, setLoading2] = useState(false);
 
@@ -33,6 +33,7 @@ function Submission({ data, refresh }) {
         })
         .then((res) => {
           console.log(res);
+          refresh();
         });
     } catch (error) {
       console.log(error);
@@ -75,13 +76,13 @@ function Submission({ data, refresh }) {
       setAlreadyJoined(false);
     } else {
       setAlreadyJoined(true);
-      if (data.teams.idea) setIdea(data.teams.idea);
-      if (data.teams.submission) setLink(data.teams.submission);
+      // if (data.teams.idea) setIdea(data.teams.idea);
+      // if (data.teams.submission) setLink(data.teams.submission);
     }
   }, [data]);
 
   return (
-    <Container className="wrapper">
+    <Container className="wrapper" style={{ height: "100%" }}>
       <Grid container justify="center" style={{ height: "100%" }}>
         <Grid
           item

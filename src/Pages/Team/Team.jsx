@@ -1,4 +1,10 @@
-import { CircularProgress, Container, Grid, Hidden } from "@material-ui/core";
+import {
+  Avatar,
+  CircularProgress,
+  Container,
+  Grid,
+  Hidden,
+} from "@material-ui/core";
 import { Done, FilterNone } from "@material-ui/icons";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
@@ -119,23 +125,55 @@ function Team({ data, refresh }) {
 
   return (
     <Container className="wrapper">
-      <Grid container justify="center" style={{ height: "100%" }}>
-        <Hidden xsDown>
+      <Grid container justify="center" style={{ height: "100%" }} spacing={3}>
+        {alreadyJoined ? (
           <Grid
             item
             xs={12}
             sm={6}
             // justify="center"
-            alignItems="center"
-            style={{ display: "flex" }}
+            justify="center"
+            style={{ display: "flex", flexDirection: "column" }}
           >
-            <img
-              src="/assets/teams.svg"
-              alt="team"
-              className="landing-image team-image"
-            />
+            <h2 className="team-heading team-name-head">
+              {data.teams.name} (members):
+            </h2>
+
+            <div className="team-members-div">
+              {data.teams.users.map((user, i) => (
+                <div className="member-div">
+                  <Avatar
+                    alt={user.name}
+                    variant="circle"
+                    src="/"
+                    className={`member-avatar avatar-${i}`}
+                  />
+                  <div className="member-info-div">
+                    <h2>{user.name}</h2>
+                    <h3>{user.email}</h3>
+                  </div>
+                </div>
+              ))}
+            </div>
           </Grid>
-        </Hidden>
+        ) : (
+          <Hidden xsDown>
+            <Grid
+              item
+              xs={12}
+              sm={6}
+              // justify="center"
+              alignItems="center"
+              style={{ display: "flex" }}
+            >
+              <img
+                src="/assets/teams.svg"
+                alt="team"
+                className="landing-image team-image"
+              />
+            </Grid>
+          </Hidden>
+        )}
 
         <Grid
           item

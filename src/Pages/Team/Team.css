@@ -73,3 +73,52 @@
 .landing-image.team-image {
 	width: 70%;
 }
+
+.team-heading.team-name-head {
+	font-size: calc(1rem + 1.5vw);
+}
+
+.team-members-div {
+	display: flex;
+	flex-direction: column;
+	margin-top: 20px;
+}
+
+.member-div {
+	width: max-content;
+	max-width: 90%;
+	background-color: #3b3b3b;
+	padding: 10px 10px;
+	padding-right: 30px;
+	border-radius: 150px;
+	display: flex;
+	align-items: center;
+	margin: 5px 0;
+	overflow: scroll;
+	white-space: nowrap;
+}
+
+.member-avatar {
+	width: 60px !important;
+	height: 60px !important;
+	font-size: 2rem !important;
+	font-weight: bold !important;
+	margin-right: 15px !important;
+}
+
+.avatar-0 {
+	background-color: #ef6d38 !important;
+}
+
+.avatar-1 {
+	background-color: #673ab7 !important;
+}
+
+.member-info-div h2 {
+	margin: 0;
+}
+
+.member-info-div h3 {
+	margin: 0;
+	font-weight: normal;
+}
