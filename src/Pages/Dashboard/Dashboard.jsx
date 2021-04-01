@@ -11,6 +11,20 @@ function Dashboard({ data }) {
   const canvas = useRef(null);
 
   useEffect(() => {
+    const canvasRef = canvas.current;
+    const loadData = localStorage.getItem("drawing");
+    if (loadData) {
+      canvasRef.loadSaveData(loadData);
+    }
+
+    return () => {
+      const drawing = canvasRef.getSaveData();
+
+      localStorage.setItem("drawing", drawing);
+    };
+  }, []);
+
+  useEffect(() => {
     if (data.team.length === 0) {
       setAlreadyJoined(false);
     } else {
@@ -69,6 +83,7 @@ function Dashboard({ data }) {
               setColor(color.hex);
             }}
           />
+
           <Button
             variant="outlined"
             color="primary"
