@@ -60,10 +60,11 @@ function Dashboard({ data }) {
             canvasWidth={
               window.innerWidth > 600
                 ? window.innerWidth * 0.45
-                : window.innerWidth * 0.95
+                : window.innerWidth * 0.9
             }
             brushColor={color}
             brushRadius={5}
+            style={{ borderRadius: 12 }}
           />
           <SliderPicker
             color={color}

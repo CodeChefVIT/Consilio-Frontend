@@ -1,0 +1,65 @@
+.team-heading {
+  font-size: calc(1.5rem + 2.3vw);
+  color: var(--primary);
+  margin-bottom: 0;
+}
+
+.team-subhead {
+  font-size: calc(1rem + 1vw);
+  font-weight: normal;
+}
+
+.team-btn-div {
+  margin-top: 50px;
+  display: flex;
+  /* text-align: center; */
+}
+
+.join-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.sub-input {
+  background-color: #27a3be88;
+  border: none;
+  height: auto;
+  width: 80%;
+  resize: none;
+  margin: 10px auto;
+  padding: 12px;
+  border-radius: 12px;
+  color: white !important;
+  font-size: 1rem;
+  font-family: "Maven Pro", sans-serif;
+  text-align: center;
+  font-weight: bold;
+}
+
+.sub-input:focus {
+  outline: none;
+}
+
+.sub-input::placeholder {
+  color: rgba(233, 233, 233, 0.8) !important;
+  text-align: center;
+  font-weight: bold;
+  font-family: "Maven Pro", sans-serif;
+}
+
+.action-btn-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.already-joined-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

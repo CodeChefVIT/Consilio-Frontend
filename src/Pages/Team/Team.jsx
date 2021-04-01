@@ -267,6 +267,7 @@ function Team({ data, refresh }) {
                     type="text"
                     value={data.teams.code}
                     className="team-input"
+                    readOnly
                     // defaultValue={newTeamName}
                   />
                 </div>

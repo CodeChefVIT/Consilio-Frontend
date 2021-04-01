@@ -12,7 +12,7 @@
 
 .nav-tabs-container {
 	height: 45px;
-	width: 270px;
+	width: 300px;
 	background-color: #27a3be;
 	border-radius: 15px;
 	display: flex;
@@ -27,7 +27,7 @@
 	align-items: center;
 	font-weight: bold;
 	cursor: pointer;
-	margin: 0 10px;
+	margin: 0 0;
 	text-decoration: none;
 }
 

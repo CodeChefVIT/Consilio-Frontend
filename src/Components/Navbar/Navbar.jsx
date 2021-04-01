@@ -32,6 +32,14 @@ function Navbar(props) {
           >
             Dashboard
           </Link>
+          <Link
+            to="/app/submission"
+            className={`nav-tab ${
+              history.location.pathname === "/app/submission" ? "active" : null
+            }`}
+          >
+            Submission
+          </Link>
         </div>
       </div>
     </div>

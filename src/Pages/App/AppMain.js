@@ -5,6 +5,7 @@ import Navbar from "../../Components/Navbar/Navbar";
 import Dashboard from "../Dashboard/Dashboard";
 import axios from "axios";
 import Loading from "../../Components/Loading/Loading";
+import Submission from "../Submission/Submission";
 
 const AppMain = () => {
   const history = useHistory();
@@ -40,6 +41,7 @@ const AppMain = () => {
           },
         })
         .then((res) => {
+          console.log(res.data)
           setTeamDetails(res.data);
         });
     } catch (error) {
@@ -78,6 +80,13 @@ const AppMain = () => {
           path="/app/team"
           component={(props) => (
             <Team {...props} data={teamDetails} refresh={setupApp} />
+          )}
+        ></Route>
+        <Route
+          exact
+          path="/app/submission"
+          component={(props) => (
+            <Submission {...props} data={teamDetails} refresh={setupApp} />
           )}
         ></Route>
       </Switch>
