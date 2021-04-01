@@ -1,4 +1,5 @@
 import { CircularProgress, Container, Grid } from "@material-ui/core";
+import { Done } from "@material-ui/icons";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -107,7 +108,7 @@ function Submission({ data, refresh }) {
                 You are a part of team{" "}
                 <span style={{ color: "#2CC8EB" }}>{data.teams.name}</span>
               </h2>
-              {data.teams.users.map((user) => (
+              {/* {data.teams.users.map((user) => (
                 <div
                   style={{
                     color: "#2CC8EB",
@@ -117,7 +118,7 @@ function Submission({ data, refresh }) {
                 >
                   {user.name}
                 </div>
-              ))}
+              ))} */}
             </div>
           )}
         </Grid>
@@ -156,7 +157,7 @@ function Submission({ data, refresh }) {
                 readOnly={data.teams.submitted ? true : false}
               />
               <input
-                type="text"
+                type="url"
                 className="sub-input"
                 defaultValue={link}
                 placeholder="Submission Link"
@@ -192,7 +193,14 @@ function Submission({ data, refresh }) {
                   </h3>
                 </>
               ) : (
-                <></>
+                <div className="action-btn-container submitted">
+                  <div className="done-icon">
+                    <Done style={{ fontSize: 32, fontWeight: 900 }} />
+                  </div>
+                  <p>
+                    <strong>Your design was successfully submitted!</strong>
+                  </p>
+                </div>
               )}
             </form>
           )}

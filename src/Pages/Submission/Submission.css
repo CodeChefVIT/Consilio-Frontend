@@ -24,3 +24,16 @@
   font-weight: bold;
   font-family: "Maven Pro", sans-serif;
 }
+
+.action-btn-container.submitted {
+  margin-top: 20px;
+}
+
+.done-icon {
+  background-color: rgb(0, 189, 0) !important;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+}
