@@ -13,6 +13,43 @@
 	margin-top: 50px;
 }
 
-/* .team-content {
+.join-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.input-container {
+	background-color: #27a3be;
+	width: 333px;
+	padding: 10px 5px;
+	border-radius: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 30px;
+}
+
+.team-input {
+	background-color: rgba(249, 249, 249, 0.4);
+	border: none;
+	height: 40px;
+	width: 300px;
+	color: white !important;
+	font-size: 1.7rem;
+	font-family: "Maven Pro", sans-serif;
 	text-align: center;
-} */
+	font-weight: bold;
+}
+
+.team-input:focus {
+	outline: none;
+}
+
+.team-input::placeholder {
+	color: rgba(233, 233, 233, 0.562) !important;
+	text-align: center;
+	font-weight: bold;
+	font-family: "Maven Pro", sans-serif;
+}
