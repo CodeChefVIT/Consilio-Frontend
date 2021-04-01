@@ -13,12 +13,12 @@ body {
   background-size: cover;
   background-position: bottom left;
   font-family: "Maven Pro", sans-serif !important;
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
 a {

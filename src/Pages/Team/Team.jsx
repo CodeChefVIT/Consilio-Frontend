@@ -164,7 +164,11 @@ function Team({ data, refresh }) {
                         onChange={(e) =>
                           setJoinCode(e.target.value.toUpperCase())
                         }
-                        ref={register({ required: true })}
+                        ref={register({
+                          required: true,
+                          minLength: 5,
+                          maxLength: 5,
+                        })}
                         name="joinCode"
                       />
                     </div>
