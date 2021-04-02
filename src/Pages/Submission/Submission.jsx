@@ -38,11 +38,11 @@ function Submission({ data, refresh }) {
     setLoading(true);
     const url = `${process.env.REACT_APP_BACKEND_URL}/team/update?teamId=${data.teams._id}`;
     const token = localStorage.getItem("authToken");
-    var patt = new RegExp(
-      `https?://(www.)?[-a-zA-Z0-9@:%._+~#=]{1,256}.[a-zA-Z0-9()]{1,6}b([-a-zA-Z0-9()@:%_+.~#?&//=]*)`
-    );
-    var res = patt.test(link);
-    if (idea === "" || !res) {
+    var expression = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/;
+    var regex = new RegExp(expression);
+    var res = regex.test(link);
+    if (idea === "" || !res || !idea) {
+      console.log(idea, res);
       setLoading(false);
       setSnack(true);
       return;
@@ -74,13 +74,13 @@ function Submission({ data, refresh }) {
     setLoading2(true);
     const url = `${process.env.REACT_APP_BACKEND_URL}/team/update?teamId=${data.teams._id}`;
     const token = localStorage.getItem("authToken");
-    var patt = new RegExp(
-      `https?://(www.)?[-a-zA-Z0-9@:%._+~#=]{1,256}.[a-zA-Z0-9()]{1,6}b([-a-zA-Z0-9()@:%_+.~#?&//=]*)`
-    );
-    var res = patt.test(link);
-    if (idea === "" || !res) {
+    var expression = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/;
+    var regex = new RegExp(expression);
+    var res = regex.test(link);
+    if (idea === "" || !res || !idea) {
+      console.log(idea, res);
+      setLoading(false);
       setSnack(true);
-      setLoading2(false);
       return;
     }
     const Data = {
@@ -184,7 +184,13 @@ function Submission({ data, refresh }) {
               />
               <Typography
                 variant="caption"
-                style={{ width: "100%", textAlign: "right", paddingRight: '15%', marginBottom: 15, marginTop: -10 }}
+                style={{
+                  width: "100%",
+                  textAlign: "right",
+                  paddingRight: "15%",
+                  marginBottom: 15,
+                  marginTop: -10,
+                }}
               >
                 Max 500 characters
               </Typography>
