@@ -1,6 +1,8 @@
 .landing-page {
 	font-family: "Maven Pro", sans-serif !important;
 	color: white;
+	height: 100vh;
+	overflow-y: hidden;
 }
 
 .landing-content {

@@ -107,6 +107,9 @@ function Dashboard({ data }) {
           <Button
             variant="outlined"
             color="primary"
+            style={{
+              marginBottom: "25px",
+            }}
             onClick={() => {
               canvas.current.clear();
             }}
