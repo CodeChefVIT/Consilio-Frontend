@@ -21,7 +21,7 @@ const AppMain = () => {
     try {
       await axios
         .get(url, {
-          headers: { authorization: `Bearer ${token}` },
+          headers: { authorization: `Bearer ${token}` }
         })
         .then((res) => {
           console.log(res.data);
@@ -37,8 +37,8 @@ const AppMain = () => {
       await axios
         .get(url, {
           headers: {
-            authorization: `Bearer ${token}`,
-          },
+            authorization: `Bearer ${token}`
+          }
         })
         .then((res) => {
           console.log(res.data);
