@@ -16,11 +16,11 @@
 }
 
 .join-container {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-	width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
 }
 
 .input-container {
@@ -94,7 +94,7 @@
   display: flex;
   align-items: center;
   margin: 5px 0;
-  overflow: auto;
+  overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -117,9 +117,18 @@
 
 .member-info-div h2 {
   margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .member-info-div h3 {
   margin: 0;
   font-weight: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.member-info-div {
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
