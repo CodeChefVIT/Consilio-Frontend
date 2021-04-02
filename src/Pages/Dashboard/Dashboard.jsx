@@ -49,18 +49,27 @@ function Dashboard({ data }) {
             <div className="drawing-info-div">
               <h2>Draw and win!</h2>
               <ul>
-                <li>Draw your best art in the given canvas!</li>
                 <li>
-                  Take a screenshot of your drawing, and post on any social
-                  media, tagging <strong>@codechefvit</strong>
+                  Draw something which dazzles us on the given whiteboard!
+                </li>
+                <li>
+                  Take a screenshot of your drawing, and post it on any social
+                  media handle tagging{" "}
+                  <a
+                    href="https://linktr.ee/codechefvit"
+                    target="_blank"
+                    rel="nofollow"
+                  >
+                    <strong style={{ color: "black" }}>@codechefvit</strong>
+                  </a>
                 </li>
                 <li>
                   <strong>
-                    Stand a chance to win a special prize from us! The one with
-                    the best drawing will recieve swags and goodies!
+                    The team with the best drawing will receive swags and
+                    goodies!
                   </strong>
                 </li>
-                <li>So get your artistic caps on, and paint a masterpiece!</li>
+                <li>Get your artistic caps on, and paint a masterpiece!</li>
               </ul>
             </div>
           </div>
