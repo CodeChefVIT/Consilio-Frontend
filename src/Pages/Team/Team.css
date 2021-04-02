@@ -16,10 +16,11 @@
 }
 
 .join-container {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	width: 100%;
 }
 
 .input-container {
