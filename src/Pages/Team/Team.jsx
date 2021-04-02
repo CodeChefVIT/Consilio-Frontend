@@ -317,6 +317,7 @@ function Team({ data, refresh }) {
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
+                  width: "100%",
                   flexDirection: "column",
                 }}
               >

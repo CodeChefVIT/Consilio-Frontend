@@ -8,6 +8,7 @@ import {
   DialogContentText,
   DialogTitle,
   Grid,
+  Typography,
 } from "@material-ui/core";
 import { Done } from "@material-ui/icons";
 import Snackbar from "@material-ui/core/Snackbar";
@@ -38,7 +39,7 @@ function Submission({ data, refresh }) {
     const url = `${process.env.REACT_APP_BACKEND_URL}/team/update?teamId=${data.teams._id}`;
     const token = localStorage.getItem("authToken");
     var patt = new RegExp(
-      `https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)`
+      `https?://(www.)?[-a-zA-Z0-9@:%._+~#=]{1,256}.[a-zA-Z0-9()]{1,6}b([-a-zA-Z0-9()@:%_+.~#?&//=]*)`
     );
     var res = patt.test(link);
     if (idea === "" || !res) {
@@ -74,7 +75,7 @@ function Submission({ data, refresh }) {
     const url = `${process.env.REACT_APP_BACKEND_URL}/team/update?teamId=${data.teams._id}`;
     const token = localStorage.getItem("authToken");
     var patt = new RegExp(
-      `https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)`
+      `https?://(www.)?[-a-zA-Z0-9@:%._+~#=]{1,256}.[a-zA-Z0-9()]{1,6}b([-a-zA-Z0-9()@:%_+.~#?&//=]*)`
     );
     var res = patt.test(link);
     if (idea === "" || !res) {
@@ -178,8 +179,15 @@ function Submission({ data, refresh }) {
                 ref={register({ required: true })}
                 name="idea"
                 required
+                maxLength={500}
                 readOnly={data.teams.submitted ? true : false}
               />
+              <Typography
+                variant="caption"
+                style={{ width: "100%", textAlign: "right", paddingRight: '15%', marginBottom: 15, marginTop: -10 }}
+              >
+                Max 500 characters
+              </Typography>
               <input
                 type="url"
                 className="sub-input"
