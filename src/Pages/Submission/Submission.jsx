@@ -217,7 +217,7 @@ function Submission({ data, refresh }) {
                         "Save"
                       )}
                     </button>
-                    <button
+                    {/* <button
                       className="secondary-button"
                       onClick={() => setOpen(true)}
                     >
@@ -226,12 +226,13 @@ function Submission({ data, refresh }) {
                       ) : (
                         "Submit"
                       )}
-                    </button>
+                    </button> */}
                   </div>
-                  <h3 style={{ textAlign: "center" }}>
+                  {/* <h3 style={{ textAlign: "center" }}>
                     Once Submitted, you will not be able to change your
                     submission
-                  </h3>
+                  </h3> */}
+                  <h3>Submissions open on 4th April</h3>
                 </>
               ) : (
                 <div className="action-btn-container submitted">

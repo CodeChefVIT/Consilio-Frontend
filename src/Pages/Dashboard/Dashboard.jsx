@@ -58,7 +58,7 @@ function Dashboard({ data }) {
                   <a
                     href="https://linktr.ee/codechefvit"
                     target="_blank"
-                    rel="nofollow"
+                    rel="nofollow noreferrer"
                   >
                     <strong style={{ color: "black" }}>@codechefvit</strong>
                   </a>
@@ -94,6 +94,7 @@ function Dashboard({ data }) {
             }
             brushColor={color}
             brushRadius={5}
+            lazyRadius={0}
             style={{ borderRadius: 12 }}
           />
           <SliderPicker
