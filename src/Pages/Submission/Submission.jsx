@@ -8,6 +8,7 @@ import {
   DialogContentText,
   DialogTitle,
   Grid,
+  Hidden,
   Typography,
 } from "@material-ui/core";
 import { Done } from "@material-ui/icons";
@@ -159,11 +160,13 @@ function Submission({ data, refresh }) {
           className="team-content"
         >
           {!alreadyJoined ? (
-            <img
-              src="/assets/design.svg"
-              alt="design"
-              className="landing-image"
-            />
+            <Hidden xsDown>
+              <img
+                src="/assets/design.svg"
+                alt="design"
+                className="landing-image"
+              />
+            </Hidden>
           ) : (
             <form
               className="join-container"

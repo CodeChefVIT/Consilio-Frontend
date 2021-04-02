@@ -29,7 +29,9 @@ const LandingPage = () => {
   return (
     <div className="landing-page">
       <div className="landing-nav">
-        <h1 style={{ margin: "10px auto auto 20px" }}>Consilio</h1>
+        <div style={{ paddingLeft: 40 }}>
+          <h1 style={{ margin: "none" }}>Consilio</h1>
+        </div>
       </div>
       <div className="landing-content">
         <Container>

@@ -12,7 +12,9 @@ function Navbar(props) {
   return (
     <div className="landing-nav app-nav">
       <Hidden xsDown>
-        <h1 style={{ margin: "10px auto auto 20px" }}>Consilio</h1>
+        <div style={{ paddingLeft: 40 }}>
+          <h1 style={{ margin: "none" }}>Consilio</h1>
+        </div>
       </Hidden>
       <div className="nav-tab-div">
         <div className="nav-tabs-container">
