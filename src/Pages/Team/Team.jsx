@@ -8,8 +8,14 @@ import {
 import { Done, FilterNone } from "@material-ui/icons";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import Snackbar from "@material-ui/core/Snackbar";
+import MuiAlert from "@material-ui/lab/Alert";
 import { useForm } from "react-hook-form";
 import "./Team.css";
+
+function Alert(props) {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
 
 function Team({ data, refresh }) {
   const { handleSubmit, register } = useForm();
@@ -20,6 +26,8 @@ function Team({ data, refresh }) {
   const [newTeamName, setNewTeamName] = useState("");
   const [loading, setLoading] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [snack, setSnack] = useState(false);
+  const [snackText, setSnackText] = useState("");
 
   // console.log(data);
   const handleJoinTeam = async () => {
@@ -44,6 +52,16 @@ function Team({ data, refresh }) {
         });
     } catch (error) {
       console.log(error);
+      if (error.response.status === 404) {
+        setSnackText("Team Doesn't Exist");
+        setSnack(true);
+      } else if (error.response.status === 403) {
+        setSnackText("Team Full");
+        setSnack(true);
+      } else if (error.response.status === 402) {
+        setSnackText("Team Finalised");
+        setSnack(true);
+      }
     }
 
     setLoading(false);
@@ -71,6 +89,10 @@ function Team({ data, refresh }) {
         });
     } catch (error) {
       console.log(error);
+      if (error.response.status === 405) {
+        setSnackText("Team Name Taken");
+        setSnack(true);
+      }
     }
 
     setLoading(false);
@@ -98,6 +120,10 @@ function Team({ data, refresh }) {
         });
     } catch (error) {
       console.log(error);
+      if (error.response.status === 402) {
+        setSnackText("Team is Finalised");
+        setSnack(true);
+      }
     }
 
     setLoading(false);
@@ -136,7 +162,7 @@ function Team({ data, refresh }) {
             style={{ display: "flex", flexDirection: "column" }}
           >
             <h2 className="team-heading team-name-head">
-              {data.teams.name} (members):
+              Team {data.teams.name}:
             </h2>
 
             <div className="team-members-div">
@@ -223,6 +249,8 @@ function Team({ data, refresh }) {
                           minLength: 5,
                           maxLength: 5,
                         })}
+                        maxLength={5}
+                        minLength={5}
                         name="joinCode"
                       />
                     </div>
@@ -306,7 +334,7 @@ function Team({ data, refresh }) {
                 </>
               )}
             </div>
-          ) : (
+          ) : data.teams.finalised === false ? (
             <div className="already-joined-div">
               <h3>
                 You are a part of team{" "}
@@ -355,9 +383,20 @@ function Team({ data, refresh }) {
                 </button>
               </div>
             </div>
+          ) : (
+            <></>
           )}
         </Grid>
       </Grid>
+      <Snackbar
+        open={snack}
+        autoHideDuration={6000}
+        onClose={() => setSnack(false)}
+      >
+        <Alert onClose={() => setSnack(false)} severity="error">
+          {snackText}
+        </Alert>
+      </Snackbar>
     </Container>
   );
 }
