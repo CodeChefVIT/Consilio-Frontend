@@ -6,6 +6,7 @@ import AppMain from "./Pages/App/AppMain";
 
 const theme = createMuiTheme({
   palette: {
+    type: "dark",
     primary: {
       main: "#2CC8EB",
       color: "#efefef",

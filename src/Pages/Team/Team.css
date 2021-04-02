@@ -1,124 +1,124 @@
 .team-heading {
-	font-size: calc(1.5rem + 2.3vw);
-	color: var(--primary);
-	margin-bottom: 0;
+  font-size: calc(1.5rem + 2.3vw);
+  color: var(--primary);
+  margin-bottom: 0;
 }
 
 .team-subhead {
-	font-size: calc(1rem + 1vw);
-	font-weight: normal;
+  font-size: calc(1rem + 1vw);
+  font-weight: normal;
 }
 
 .team-btn-div {
-	margin-top: 50px;
-	display: flex;
-	/* text-align: center; */
+  margin-top: 50px;
+  display: flex;
+  /* text-align: center; */
 }
 
 .join-container {
-	display: flex;
-	justify-content: center;
-	flex-direction: column;
-	width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
 }
 
 .input-container {
-	background-color: #27a3be;
-	width: 333px;
-	padding: 10px 5px;
-	border-radius: 20px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin-bottom: 30px;
+  background-color: #27a3be;
+  width: 333px;
+  padding: 10px 5px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
 }
 
 .team-input {
-	background-color: rgba(249, 249, 249, 0.4);
-	border: none;
-	height: 40px;
-	width: 300px;
-	color: white !important;
-	font-size: 1.7rem;
-	font-family: "Maven Pro", sans-serif;
-	text-align: center;
-	font-weight: bold;
+  background-color: rgba(249, 249, 249, 0.4);
+  border: none;
+  height: 40px;
+  width: 300px;
+  color: white !important;
+  font-size: 1.7rem;
+  font-family: "Maven Pro", sans-serif;
+  text-align: center;
+  font-weight: bold;
 }
 
 .team-input:focus {
-	outline: none;
+  outline: none;
 }
 
 .team-input::placeholder {
-	color: rgba(233, 233, 233, 0.8) !important;
-	text-align: center;
-	font-weight: bold;
-	font-family: "Maven Pro", sans-serif;
+  color: rgba(233, 233, 233, 0.8) !important;
+  text-align: center;
+  font-weight: bold;
+  font-family: "Maven Pro", sans-serif;
 }
 
 .action-btn-container {
-	width: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .already-joined-div {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .landing-image.team-image {
-	width: 70%;
+  width: 70%;
 }
 
 .team-heading.team-name-head {
-	font-size: calc(1rem + 1.5vw);
+  font-size: calc(1rem + 1.5vw);
 }
 
 .team-members-div {
-	display: flex;
-	flex-direction: column;
-	margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
 }
 
 .member-div {
-	width: max-content;
-	max-width: 90%;
-	background-color: #3b3b3b;
-	padding: 10px 10px;
-	padding-right: 30px;
-	border-radius: 150px;
-	display: flex;
-	align-items: center;
-	margin: 5px 0;
-	overflow: scroll;
-	white-space: nowrap;
+  max-width: 300px;
+  background-color: #3b3b3b;
+  padding: 10px 10px;
+  padding-right: 30px;
+  border-radius: 150px;
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+  overflow: auto;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .member-avatar {
-	width: 60px !important;
-	height: 60px !important;
-	font-size: 2rem !important;
-	font-weight: bold !important;
-	margin-right: 15px !important;
+  width: 60px !important;
+  height: 60px !important;
+  font-size: 2rem !important;
+  font-weight: bold !important;
+  margin-right: 15px !important;
 }
 
 .avatar-0 {
-	background-color: #ef6d38 !important;
+  background-color: #ef6d38 !important;
 }
 
 .avatar-1 {
-	background-color: #673ab7 !important;
+  background-color: #673ab7 !important;
 }
 
 .member-info-div h2 {
-	margin: 0;
+  margin: 0;
 }
 
 .member-info-div h3 {
-	margin: 0;
-	font-weight: normal;
+  margin: 0;
+  font-weight: normal;
 }

@@ -145,7 +145,7 @@ function Team({ data, refresh }) {
                   <Avatar
                     alt={user.name}
                     variant="circle"
-                    src="/"
+                    src={user.avatar}
                     className={`member-avatar avatar-${i}`}
                   />
                   <div className="member-info-div">

@@ -1,16 +1,34 @@
-import { CircularProgress, Container, Grid } from "@material-ui/core";
+import {
+  Button,
+  CircularProgress,
+  Container,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  Grid,
+} from "@material-ui/core";
 import { Done } from "@material-ui/icons";
+import Snackbar from "@material-ui/core/Snackbar";
+import MuiAlert from "@material-ui/lab/Alert";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import "./Submission.css";
 
+function Alert(props) {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
+
 function Submission({ data, refresh }) {
   const { handleSubmit, register } = useForm();
+  const [open, setOpen] = useState(false);
+  const [snack, setSnack] = useState(false);
   const [alreadyJoined, setAlreadyJoined] = useState(false);
-  const [idea, setIdea] = useState(data.teams.idea);
-  const [link, setLink] = useState(data.teams.submission);
+  const [idea, setIdea] = useState("");
+  const [link, setLink] = useState("");
   const [loading, setLoading] = useState(false);
   const [loading2, setLoading2] = useState(false);
 
@@ -19,7 +37,15 @@ function Submission({ data, refresh }) {
     setLoading(true);
     const url = `${process.env.REACT_APP_BACKEND_URL}/team/update?teamId=${data.teams._id}`;
     const token = localStorage.getItem("authToken");
-
+    var patt = new RegExp(
+      `https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)`
+    );
+    var res = patt.test(link);
+    if (idea === "" || !res) {
+      setLoading(false);
+      setSnack(true);
+      return;
+    }
     const Data = {
       idea: idea,
       submission: link,
@@ -47,7 +73,15 @@ function Submission({ data, refresh }) {
     setLoading2(true);
     const url = `${process.env.REACT_APP_BACKEND_URL}/team/update?teamId=${data.teams._id}`;
     const token = localStorage.getItem("authToken");
-
+    var patt = new RegExp(
+      `https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)`
+    );
+    var res = patt.test(link);
+    if (idea === "" || !res) {
+      setSnack(true);
+      setLoading2(false);
+      return;
+    }
     const Data = {
       submitted: true,
       idea: idea,
@@ -77,8 +111,8 @@ function Submission({ data, refresh }) {
       setAlreadyJoined(false);
     } else {
       setAlreadyJoined(true);
-      // if (data.teams.idea) setIdea(data.teams.idea);
-      // if (data.teams.submission) setLink(data.teams.submission);
+      if (data.teams.idea) setIdea(data.teams.idea);
+      if (data.teams.submission) setLink(data.teams.submission);
     }
   }, [data]);
 
@@ -108,17 +142,6 @@ function Submission({ data, refresh }) {
                 You are a part of team{" "}
                 <span style={{ color: "#2CC8EB" }}>{data.teams.name}</span>
               </h2>
-              {/* {data.teams.users.map((user) => (
-                <div
-                  style={{
-                    color: "#2CC8EB",
-                    fontWeight: "600",
-                    fontSize: "1.2rem",
-                  }}
-                >
-                  {user.name}
-                </div>
-              ))} */}
             </div>
           )}
         </Grid>
@@ -154,6 +177,7 @@ function Submission({ data, refresh }) {
                 onChange={(e) => setIdea(e.target.value)}
                 ref={register({ required: true })}
                 name="idea"
+                required
                 readOnly={data.teams.submitted ? true : false}
               />
               <input
@@ -178,7 +202,7 @@ function Submission({ data, refresh }) {
                     </button>
                     <button
                       className="secondary-button"
-                      onClick={() => Finalize()}
+                      onClick={() => setOpen(true)}
                     >
                       {loading2 ? (
                         <CircularProgress color="secondary" size={24} />
@@ -206,6 +230,40 @@ function Submission({ data, refresh }) {
           )}
         </Grid>
       </Grid>
+      <Dialog
+        open={open}
+        keepMounted
+        onClose={() => setOpen(false)}
+        aria-labelledby="alert-dialog-slide-title"
+        aria-describedby="alert-dialog-slide-description"
+      >
+        <DialogTitle id="alert-dialog-slide-title">
+          {"Are you sure?"}
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-slide-description">
+            Are you sure you want to move ahead, you won't be able to change it
+            later.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setOpen(false)} color="primary">
+            Cancel
+          </Button>
+          <Button onClick={() => Finalize()} color="primary">
+            Continue
+          </Button>
+        </DialogActions>
+      </Dialog>
+      <Snackbar
+        open={snack}
+        autoHideDuration={6000}
+        onClose={() => setSnack(false)}
+      >
+        <Alert onClose={() => setSnack(false)} severity="error">
+          Please fill the fields correctly
+        </Alert>
+      </Snackbar>
     </Container>
   );
 }
