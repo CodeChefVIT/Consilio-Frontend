@@ -232,7 +232,7 @@ function Submission({ data, refresh }) {
                     Once Submitted, you will not be able to change your
                     submission
                   </h3> */}
-                  <h3>Submissions open on 4th April</h3>
+                  <h3>Submissions open on 5th April</h3>
                 </>
               ) : (
                 <div className="action-btn-container submitted">
