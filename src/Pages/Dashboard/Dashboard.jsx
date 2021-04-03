@@ -110,6 +110,9 @@ function Dashboard({ data }) {
             onClick={() => {
               canvas.current.clear();
             }}
+            style={{
+              marginBottom: 20
+            }}
           >
             Clear
           </Button>

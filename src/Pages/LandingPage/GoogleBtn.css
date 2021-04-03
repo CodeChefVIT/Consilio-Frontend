@@ -1,55 +1,62 @@
-/* Button taken from: https://codepen.io/jimjammc/pen/PMOVZB */
+@import url(https://fonts.googleapis.com/css?family=Roboto:500);
 
 .btn-grid {
-	display: flex !important;
-	justify-content: center !important;
-	align-items: center !important;
-	margin: 5% 0;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin: 5% 0;
 }
 
 .google-link {
-	margin-top: 4%;
+  margin-top: 4%;
 }
 
 .google-btn {
-	width: 210px;
-	height: 50px;
-	background-color: #4285f4;
-	border-radius: 2px;
-	box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .25);
-	cursor: pointer;
+  width: 200px;
+  height: 45px;
+  background-color: #4285f4;
+  border-radius: 2px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.25);
+  cursor: pointer;
 }
 
 .google-icon-wrapper {
-	position: absolute;
-	width: 50px;
-	height: 50px;
-	border-radius: 2px;
-	background-color: white;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  border-radius: 2px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .google-icon {
-	width: 40px;
-	height: 40px;
+  height: 100%;
+  background-color: #4285f4;
 }
 
 .google-btn .btn-text {
-	float: right;
-	margin: 15px 10px 0 0px;
-	color: white;
-	font-size: 14px;
-	letter-spacing: 0.2px;
-	font-weight: bold;
-	font-family: "Maven Pro", sans-serif !important;
+  float: right;
+  margin: 15px 15px 0 0;
+  color: white;
+  font-size: 14px;
+  letter-spacing: 0.2px;
+  font-weight: 500;
+  font-family: "Roboto" !important;
 }
 
 .google-btn:hover {
-	box-shadow: 0 0 6px #4285f4;
+  box-shadow: 0 0 6px #4285f4;
 }
 
-.google-btn:active {
-	background: #1669f2;
+.google-btn:active,
+.google-btn:active .google-icon {
+  background: #1669f2;
+}
+
+@media (min-width: 768px) {
+  .google-btn {
+    transform: scale(1.2);
+  }
 }

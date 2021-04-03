@@ -11,6 +11,7 @@ body {
   background-color: #1d1d1d;
   background-image: url("./assets/background.png");
   background-size: cover;
+  background-attachment: fixed;
   background-position: bottom left;
   font-family: "Maven Pro", sans-serif !important;
   min-height: 100vh;
@@ -18,7 +19,8 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }
 
 a {
