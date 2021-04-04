@@ -47,7 +47,7 @@ function Team({ data, refresh }) {
           },
         })
         .then((res) => {
-          console.log(res);
+          // console.log(res);
           refresh();
         });
     } catch (error) {
@@ -84,7 +84,7 @@ function Team({ data, refresh }) {
           },
         })
         .then((res) => {
-          console.log(res);
+          // console.log(res);
           refresh();
         });
     } catch (error) {
@@ -115,7 +115,7 @@ function Team({ data, refresh }) {
           }
         )
         .then((res) => {
-          console.log(res);
+          // console.log(res);
           refresh();
         });
     } catch (error) {

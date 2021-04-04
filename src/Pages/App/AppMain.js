@@ -24,11 +24,13 @@ const AppMain = () => {
           headers: { authorization: `Bearer ${token}` },
         })
         .then((res) => {
-          console.log(res.data);
+          // console.log(res.data);
           setDashboardDetails(res.data.user);
         });
     } catch (error) {
       console.log(error);
+      localStorage.removeItem("authToken");
+      history.replace("/");
     }
 
     url = `${process.env.REACT_APP_BACKEND_URL}/team/user`;
@@ -41,11 +43,13 @@ const AppMain = () => {
           },
         })
         .then((res) => {
-          console.log(res.data);
+          // console.log(res.data);
           setTeamDetails(res.data);
         });
     } catch (error) {
       console.log(error);
+      localStorage.removeItem("authToken");
+      history.replace("/");
     }
 
     setLoading(false);

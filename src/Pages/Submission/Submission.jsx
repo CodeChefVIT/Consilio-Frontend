@@ -43,7 +43,7 @@ function Submission({ data, refresh }) {
     var regex = new RegExp(expression);
     var res = regex.test(link);
     if (idea === "" || !res || !idea) {
-      console.log(idea, res);
+      // console.log(idea, res);
       setLoading(false);
       setSnack(true);
       return;
@@ -61,7 +61,7 @@ function Submission({ data, refresh }) {
           },
         })
         .then((res) => {
-          console.log(res);
+          // console.log(res);
           refresh();
         });
     } catch (error) {
@@ -79,7 +79,7 @@ function Submission({ data, refresh }) {
     var regex = new RegExp(expression);
     var res = regex.test(link);
     if (idea === "" || !res || !idea) {
-      console.log(idea, res);
+      // console.log(idea, res);
       setLoading(false);
       setSnack(true);
       return;
@@ -98,7 +98,7 @@ function Submission({ data, refresh }) {
           },
         })
         .then((res) => {
-          console.log(res);
+          // console.log(res);
           refresh();
         });
     } catch (error) {

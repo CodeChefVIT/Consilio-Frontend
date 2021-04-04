@@ -7,7 +7,7 @@ function Navbar(props) {
   const history = useHistory();
 
   useEffect(() => {
-    console.log(history.location.pathname);
+    // console.log(history.location.pathname);
   }, [history.location]);
   return (
     <div className="landing-nav app-nav">
@@ -45,7 +45,7 @@ function Navbar(props) {
           <ButtonBase
             className="nav-tab"
             onClick={() => {
-              localStorage.clear();
+              localStorage.removeItem("authToken");
               history.push("/");
             }}
           >

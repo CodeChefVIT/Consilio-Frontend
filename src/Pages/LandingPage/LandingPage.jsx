@@ -11,7 +11,7 @@ const LandingPage = () => {
     const url = `${process.env.REACT_APP_BACKEND_URL}/auth/getUrl`;
     try {
       await axios.get(url).then((res) => {
-        console.log(res);
+        // console.log(res);
         window.location.href = res.data.data;
       });
     } catch (error) {
