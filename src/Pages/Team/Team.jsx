@@ -294,6 +294,7 @@ function Team({ data, refresh }) {
                       onChange={(e) => setNewTeamName(e.target.value)}
                       ref={register({ required: true })}
                       name="newTeamName"
+                      maxLength="30"
                     />
                   </div>
 
