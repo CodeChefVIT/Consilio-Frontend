@@ -215,7 +215,7 @@ function Submission({ data, refresh }) {
               {!data.teams.submitted ? (
                 <>
                   <div className="action-btn-container">
-                    <button
+                    {/* <button
                       className="secondary-button"
                       type="submit"
                       style={{ marginRight: "10px" }}
@@ -235,24 +235,34 @@ function Submission({ data, refresh }) {
                       ) : (
                         "Submit"
                       )}
-                    </button>
+                    </button> */}
                   </div>
                   <h3 style={{ textAlign: "center" }}>
-                    Click submit to finalize your submission for Review 2.{" "}
+                    {/* Click submit to finalize your submission for Review 2.{" "}
                     <br />
                     Once Submitted, you will not be able to change your
-                    submission
+                    submission */}
+                    Submissions closed!
                   </h3>
                   {/* <h3>Click on save to submit your entry for round 1</h3> */}
                 </>
               ) : (
-                <div className="action-btn-container submitted">
+                <div
+                  className="action-btn-container submitted"
+                  // style={{ flexDirection: "column" }}
+                >
                   <div className="done-icon">
                     <Done style={{ fontSize: 32, fontWeight: 900 }} />
                   </div>
                   <p>
                     <strong>Your design was successfully submitted!</strong>
+                    <br />
+                    <strong>
+                      We will be contacting the top 10 teams soon. Stay tuned on
+                      Discord!
+                    </strong>
                   </p>
+                  <p></p>
                 </div>
               )}
             </form>
