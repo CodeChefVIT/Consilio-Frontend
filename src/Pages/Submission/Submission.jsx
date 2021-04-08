@@ -243,6 +243,10 @@ function Submission({ data, refresh }) {
                     Once Submitted, you will not be able to change your
                     submission */}
                     Submissions closed!
+                    <br />
+                    We will be announcing the top 10 teams tomorrow.
+                    <br />
+                    Stay tuned on Discord!
                   </h3>
                   {/* <h3>Click on save to submit your entry for round 1</h3> */}
                 </>
@@ -258,8 +262,8 @@ function Submission({ data, refresh }) {
                     <strong>Your design was successfully submitted!</strong>
                     <br />
                     <strong>
-                      We will be contacting the top 10 teams soon. Stay tuned on
-                      Discord!
+                      We will be announcing the top 10 teams tomorrow. Stay
+                      tuned on Discord!
                     </strong>
                   </p>
                   <p></p>
