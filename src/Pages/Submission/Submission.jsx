@@ -108,6 +108,11 @@ function Submission({ data, refresh }) {
     setLoading2(false);
   };
 
+  const handleSubmitIdea = (e) => {
+    e.preventDefault();
+    setOpen(true);
+  };
+
   useEffect(() => {
     if (data.message && data.message === "Not in a team") {
       setAlreadyJoined(false);
@@ -210,29 +215,35 @@ function Submission({ data, refresh }) {
               {!data.teams.submitted ? (
                 <>
                   <div className="action-btn-container">
-                    <button className="primary-button" type="submit">
+                    <button
+                      className="secondary-button"
+                      type="submit"
+                      style={{ marginRight: "10px" }}
+                    >
                       {loading ? (
                         <CircularProgress color="secondary" size={24} />
                       ) : (
                         "Save"
                       )}
                     </button>
-                    {/* <button
-                      className="secondary-button"
-                      onClick={() => setOpen(true)}
+                    <button
+                      className="primary-button"
+                      onClick={handleSubmitIdea}
                     >
                       {loading2 ? (
                         <CircularProgress color="secondary" size={24} />
                       ) : (
                         "Submit"
                       )}
-                    </button> */}
+                    </button>
                   </div>
-                  {/* <h3 style={{ textAlign: "center" }}>
+                  <h3 style={{ textAlign: "center" }}>
+                    Click submit to finalize your submission for Review 2.{" "}
+                    <br />
                     Once Submitted, you will not be able to change your
                     submission
-                  </h3> */}
-                  <h3>Click on save to submit your entry for round 1</h3>
+                  </h3>
+                  {/* <h3>Click on save to submit your entry for round 1</h3> */}
                 </>
               ) : (
                 <div className="action-btn-container submitted">
