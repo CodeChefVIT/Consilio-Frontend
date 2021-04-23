@@ -15,7 +15,12 @@
 - Well updated and informative.
 - Easy to use.
 
-## Architecture
+## Important Links
+
+- [Consilio Backend Repo](https://github.com/CodeChefVIT/Consilio-Backend)
+- [Consilio Portal](https://designwith.codechefvit.com)
+
+## Screenshots
 
 <img src="./screenshots/ss1.png" alt="Project Screenshots"><br />
 
